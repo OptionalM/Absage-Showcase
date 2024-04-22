@@ -112,8 +112,8 @@ ol {
 .tabs__label {
   border-bottom: 2px solid #2c2f24;
   display: inline-block;
-  justify-content: center;
   padding: 1rem 1.5rem 1rem 1.5rem;
+  height: calc(100% - 2rem);
 }
 
 .tabs__tab:first-child>.tabs__label {
