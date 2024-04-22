@@ -12,10 +12,17 @@ let genreE = false;
 let downloadE = false;
 let tarackListE = false;
 
+// Fetch the song info and init the player state
 fetch('./songInfo.json')
 .then((r) => r.json())
-.then((json) => { songInfo = json; switchTrack(0); populateTrackList(); });
+.then((json) => {
+  songInfo = json;
+  initTrack();
+  switchTrack(0);
+  populateTrackList();
+});
 
+// Init DOM element variables (called when DOM is built)
 function init() {
   albumCover = document.getElementById('album-cover');
   lyricsE = document.getElementById('lyrics');
@@ -36,14 +43,24 @@ function init() {
   albumCover.addEventListener('click', () => { mbPlayPause(); });
 }
 
+// Sets currSong to the one in the URL hash (default: 0)
+function initTrack() {
+  currSong = 0;
+  const hash = window.location.hash;
+  songInfo.forEach((s, i) => {
+    if (s['title'] === hash.substring(1)) currSong = i;
+  });
+}
+
+// Adds linked tracks to the Album Info tab
 function populateTrackList() {
   if (!tarackListE) {
     setTimeout(() => populateTrackList());
     return
   }
   songInfo.forEach((s, i) => {
-    let li = document.createElement('li');
-    let a = document.createElement('a');
+    const li = document.createElement('li');
+    const a = document.createElement('a');
     a.innerHTML = s['title'];
     a.href = '#' + s['title'];
     a.onclick = () => { currSong = i ; switchTrack(0); };
@@ -76,6 +93,7 @@ function switchTrack(d) {
   titleE.innerHTML = songInfo[currSong].title;
   genreE.innerHTML = songInfo[currSong].genre;
   downloadE.href = 'album/' + songInfo[currSong].path;
+  history.replaceState(undefined, undefined, '#' + songInfo[currSong].title)
 }
 
 window.addEventListener("load", () => {
