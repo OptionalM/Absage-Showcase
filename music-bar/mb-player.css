@@ -62,3 +62,27 @@
     float: right;
     font-size: 0.87em;
 }
+
+@media (max-width: 1078px) {
+    #mb-container {
+        grid-template-columns: 250px 1fr;
+        padding-right: 40px;
+        padding-bottom: 20px;
+        height: 100px;
+    }
+    
+    .mb-bar {
+        width: 100%;
+        height: 12px;
+        margin-top: 35px;
+        margin-bottom: 5px;
+    }
+
+    .mb-controls {
+        margin: auto 30px;
+    }
+    .mb-controls img, .mb-controls span {
+        width: 70px;
+        height: 70px;
+    }    
+}
