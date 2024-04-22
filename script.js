@@ -46,7 +46,7 @@ function init() {
 // Sets currSong to the one in the URL hash (default: 0)
 function initTrack() {
   currSong = 0;
-  const hash = window.location.hash;
+  const hash = decodeURIComponent(window.location.hash);
   songInfo.forEach((s, i) => {
     if (s['title'] === hash.substring(1)) currSong = i;
   });
