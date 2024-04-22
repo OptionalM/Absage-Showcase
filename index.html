@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Absage - Album Showcase</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="music-bar/mb-player.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="script.js"></script>
+  <script src="music-bar/mb-player.js"></script>
+  <link rel="icon" href="assets/album_cover.png">
+  <meta property="og:title" content="Absage - Album Showcase" />
+  <meta property="og:description" content="Ein AI-generiertes Album von Optionaler König." />
+  <meta property="og:image" content="https://optionalm.github.io/Absage-Showcase/assets/album_cover.png" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Absage - Album Showcase">
+  <meta name="twitter:description" content="Ein AI-generiertes Album von Optionaler König.">
+  <meta name="twitter:image" content="https://optionalm.github.io/Absage-Showcase/assets/album_cover.png">
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <div class="album-container">
+          <div class="album">
+              <img src="assets/album_cover.png" alt="Album Cover" class="cover" id="album-cover">
+              <div class="cd-container" id="cd">
+                  <img src="assets/cd.png" alt="CD" class="cd">
+              </div>
+          </div>
+      </div>
+      <h2>Absage <small>- Optionaler König</small></h2>
+    </div>
+
+      <div class="info-container">
+        <h1><small>Track: </small><span id="title">Title</span></h1>
+        <div class="tabs">
+          <ul class="tabs__list">
+            <li class="tabs__tab">
+              <label for="tab-0" class="tabs__label" role="button">Lyrics</label>
+            </li>
+            <li class="tabs__tab">
+              <label for="tab-1" class="tabs__label" role="button">Song Info</label>
+            </li>
+            <li class="tabs__tab">
+              <label for="tab-2" class="tabs__label" role="button">Album Info</label>
+            </li>
+          </ul>
+          <div class="tabs__content">
+            <input class="tabs__input" type="radio" id="tab-0" name="tab-group" checked>
+            <p id="lyrics">Lyrics</p>
+          </div>
+          <div class="tabs__content">
+            <input class="tabs__input" type="radio" id="tab-1" name="tab-group" checked>
+            <p>
+              Genre: <span id="genre">Genre</span>
+            </p>
+            <p>
+              Herunterladen: <a id="download-song" href="album/01 - Meine Prioritäten.mp3" download>Hier klicken</a>
+            </p>
+          </div>
+          <div class="tabs__content">
+            <input class="tabs__input" type="radio" id="tab-2" name="tab-group" checked>
+            <p>
+              <em>Absage</em> ist das erste und letzte Album vom Gen-AI prompting Duo <em>Optionaler König</em>.
+              In wenigen Minuten seichter Anstrengung haben die beiden Musikdilletant*innen Texte in das Prompt-Fenster kopiert und auf "Generieren" geklickt.
+            </p>
+            <p>
+              Die Songs basieren alle auf wahren Begebenheiten.
+              Hierfür wurden private Chats und Email-Verläufe durchforstet.
+            </p>
+            <p>
+              Da diese Lieder generiert sind, gibt es keine Urheber*in.
+              Ohne Urheber*in gibt’s auch kein Urheberrecht.
+              Macht mit den Songs also coole Dinge, wie tatsächlich gute Cover oder Mixes.
+              Die einzelnen Songs können im Tab "Song Info" heruntergeladen werden.
+              Das ganze Album gibt’s <a href="album/Absage.zip">hier</a>.
+            </p>
+            <p>
+              Die Lieder sind generiert mit <a href="https://suno.com">Suno v3</a>.<br>
+              Das Albumcover ist generiert mit <a href="https://civitai.com/models/5273/wyvernmix-15-and-xl">WyvernMix XL v1.8</a>.<br>
+              Das Bild der CD steht unter <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> Lizenz und kommt von <a href="https://pngimg.com/image/102162">hier</a>.
+            </p>
+          </div>
+          <div class="tabs__bumper"></div>
+        </div>
+      </div>
+  </div> <!-- container -->
+
+  <audio id="mb-audio" controls>
+    <source id="mb-audio-source" src="album/01 - Meine Prioritäten.mp3" type="audio/mpeg">
+  </audio>
+  <div id="mb-container">
+    <div class="mb-controls">
+      <img src="assets/left_icon.svg" id="mb-previous">
+      <span id="mb-play-pause-btn" style="position: relative;">
+        <img src="assets/play_icon.svg" id="mb-play">
+        <img src="assets/pause_icon.svg" id="mb-pause">
+      </span>
+      <img src="assets/right_icon.svg" id="mb-next">
+    </div>
+    <div class="mb-bar-container">
+      <div class="mb-bar">
+        <div class="mb-bar-now"></div>
+      </div>
+      <span id="mb-current-time">00:00</span>
+      <span id="mb-duration"></span>
+    </div>
+  </div>
+
+</body>
+</html>
