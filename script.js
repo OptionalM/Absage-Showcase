@@ -1,5 +1,7 @@
 let albumCover = false;
 let cd = false;
+let mbNextBtn = false;
+let mbPreviousBtn = false;
 let nextBtn = false;
 let previousBtn = false;
 let currSong = 0;
@@ -8,10 +10,11 @@ let lyricsE = false;
 let titleE = false;
 let genreE = false;
 let downloadE = false;
+let tarackListE = false;
 
 fetch('./songInfo.json')
 .then((r) => r.json())
-.then((json) => {songInfo = json; switchTrack(0)});
+.then((json) => { songInfo = json; switchTrack(0); populateTrackList(); });
 
 function init() {
   albumCover = document.getElementById('album-cover');
@@ -19,13 +22,34 @@ function init() {
   titleE = document.getElementById('title');
   genreE = document.getElementById('genre');
   downloadE = document.getElementById('download-song');
+  tarackListE = document.getElementById('track-list');
   cd = document.getElementById('cd');
-  nextBtn = document.getElementById('mb-next');
-  previousBtn = document.getElementById('mb-previous');
+  mbNextBtn = document.getElementById('mb-next');
+  mbPreviousBtn = document.getElementById('mb-previous');
+  nextBtn = document.getElementById('next');
+  previousBtn = document.getElementById('previous');
 
+  mbNextBtn.addEventListener('click', () => { switchTrack(1); });
+  mbPreviousBtn.addEventListener('click', () => { switchTrack(-1); });
   nextBtn.addEventListener('click', () => { switchTrack(1); });
   previousBtn.addEventListener('click', () => { switchTrack(-1); });
   albumCover.addEventListener('click', () => { mbPlayPause(); });
+}
+
+function populateTrackList() {
+  if (!tarackListE) {
+    setTimeout(() => populateTrackList());
+    return
+  }
+  songInfo.forEach((s, i) => {
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    a.innerHTML = s['title'];
+    a.href = '#' + s['title'];
+    a.onclick = () => { currSong = i ; switchTrack(0); };
+    li.appendChild(a);
+    tarackListE.appendChild(li);
+  })
 }
 
 // Toggles the playing animation for the album cover and cd
