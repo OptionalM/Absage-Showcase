@@ -13,9 +13,6 @@ h1,h2 {
   font-weight: 500;
   text-align: center;
   width: 100%;
-}
-
-h1 {
   margin-bottom: 1rem;
 }
 
@@ -38,7 +35,7 @@ ol {
 }
 
 ol>li {
-  margin-left: 3ch;
+  margin-left: 2rem;
 }
 
 .container {
@@ -222,11 +219,8 @@ label {
     width: 100%;
   }
 
-  tabs {
-    overflow: auto;
-  }
-  #lyrics {
-    width: 100%;
+  ol>li {
+    margin-left: 3rem;
   }
 }
 
