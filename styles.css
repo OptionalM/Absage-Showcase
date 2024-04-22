@@ -28,14 +28,12 @@ small {
 
 p {
   margin-bottom: .5em;
+  font-size: 16pt;
 }
 
 ol {
   list-style: decimal-leading-zero;
-}
-
-ol>li {
-  margin-left: 2rem;
+  list-style-position: inside;
 }
 
 .container {
@@ -217,10 +215,6 @@ label {
     height: 80vh;
     padding: 20px;
     width: 100%;
-  }
-
-  ol>li {
-    margin-left: 3rem;
   }
 }
 
